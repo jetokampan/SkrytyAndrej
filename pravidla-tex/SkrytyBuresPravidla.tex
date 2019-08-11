@@ -6,67 +6,90 @@
 \usepackage{geometry,hyperref,tocloft,enumitem}
 \usepackage{lmodern,graphicx,multicol,color}
 \usepackage[normalem]{ulem}
+\usepackage[explicit]{titlesec}
 
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
 \setitemize{itemsep=0pt,topsep=4pt,parsep=2pt,partopsep=2pt}
 
 \setlength{\columnsep}{2em}
+\setlength{\parskip}{1em}
+\setlength\parindent{0pt}
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
 \graphicspath{{../fig/}}
-%~ \renewcommand{\familydefault}{\ttdefault}
+
 
 \newenvironment{redbox}{
-    \vspace{1em}
     \color{red}\it
 }
 {
     \normalsize
-    \vspace{1em}
 }
+
+% default
+%~ \titleformat{\section}
+%~ {\normalfont\Large\bfseries}{\thesection}{1em}{}
+%~ \titleformat{\subsection}
+%~ {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+%~ \titleformat{\subsubsection}
+%~ {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+%~ \titleformat{\paragraph}[runin]
+%~ {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+\titleformat{\section}      {\ttfamily\huge\bfseries}      {\thesection}{1em}{\uline{#1}}
+\titleformat{\subsection}   {\ttfamily\Large\bfseries}      {\thesubsection}{1em}{\uline{#1}}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries} {\thesubsubsection}{1em}{#1}
+\titleformat{\paragraph}[runin]{\sffamily\bfseries} {\theparagraph}{1em}{#1}
+\setlist[description]{font={\sffamily\bfseries}}
+
+\titlespacing\section{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{8pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{6pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
 
 \begin{document}
 \ttfamily
 
-    \thispagestyle{empty}
-    \begin{center}
-        \fontseries{b}\selectfont
-        \vspace*{2em}
-        {\Large \uline{ZASTAVÍŠ HO, NEBO TĚ OVLÁDNE \ldots}\\}
-        \vspace{16em}
-        {\Huge Skrytý Bureš\\}
-        \vspace{2em}
-        {\large aneb}\\
-        \vspace{1em}
-        {\Large Je to kampaň!\\}
-        \vspace{13em}
-        \includegraphics[height=8em]{capi_hnizdo.pdf}
-    \end{center}
-    %~ \vfill
-    %~ {
-        %~ \Large
-        %~ Milion chvilek
-        %~ ~ \hfill Praha, 2019
-    %~ }
+\thispagestyle{empty}
+\begin{center}
+    \fontseries{b}\selectfont
+    \vspace*{2em}
+    {\Large \uline{ZASTAVÍŠ HO, NEBO TĚ OVLÁDNE\ldots}\\}
+    \vspace{16em}
+    {\Huge Skrytý Bureš\\}
+    \vspace{2em}
+    {\large aneb}\\
+    \vspace{1em}
+    {\Large Je to kampaň!\\}
+    \vspace{13em}
+    \includegraphics[height=8em]{capi_hnizdo.pdf}
+\end{center}
+%~ \vfill
+%~ {
+    %~ \Large
+    %~ Milion chvilek
+    %~ ~ \hfill Praha, 2019
+%~ }
 
-    \newpage
-    \twocolumn
-    \normalfont % tt neumí zalamovat
+\newpage
+\twocolumn
+%~ \normalfont % tt neumí zalamovat
+\sffamily
 
-    Píše se rok 2011, nacházíme se v pre-kon\-cer\-no\-vém Česku. Ve hře Skrytý Bureš jsou hráči čeští politici, kteří se snaží uchránit křehkou demokracii před nástupem vlády koncernu. Mějte se na pozoru, jsou mezi Vámi skrytí populisté, kteří jsou ochotní pro svůj prospěch udělat leccos, mimo jiné udržet u moci Skrytého Bureše.
+Píše se rok 2011, nacházíme se v pre-kon\-cer\-no\-vém Česku. Ve hře Skrytý Bureš jsou hráči čeští politici, kteří se snaží uchránit křehkou demokracii před nástupem vlády koncernu. Mějte se na pozoru, jsou mezi Vámi skrytí populisté, kteří jsou ochotní pro svůj prospěch udělat leccos, mimo jiné udržet u moci Skrytého Bureše.
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %!% poznámky
-    % --------------------------------------------------------------------------
-    % populisté vs. koncern
-    % zavedení přímé volby starostů (většinový volební systém)
-    %
-    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%!% poznámky
+% --------------------------------------------------------------------------
+% populisté vs. koncern
+% zavedení přímé volby starostů (většinový volební systém)
+%
+%
 
 
-    \section*{PŘEHLED}
+\section*{PŘEHLED}
 
-    Na začátku hry je každému hráči potají při\-dě\-le\-na jedna ze tří rolí: {\bf demokrat}, {\bf populista}, nebo {\bf Bureš}.
+    Na začátku hry je každému hráči potají při\-dě\-le\-na jedna ze tří rolí: \textbf{demokrat}, \textbf{populista}, nebo \textbf{Bureš}.
     %~ \begin{description}
         %~ \item[Demokrat.]
         %~ \item[Populista.]
@@ -74,12 +97,12 @@
     %~ \end{description}
     Demokraté drží většinu, ale neví s jistotou kdo je kdo; populisté se tedy musí uchýlit k pomluvám, nepravdám a manipulaci, aby mohli dosáhnout svých cílů. Bureš hraje pochopitelně pro tým populistů, přičemž populisté ví, kdo je Bureš, ale Bureš neví, kdo jsou populisté a musí na to přijít sám.
 
-    {\bf Demokraté vítězí zakotvením pěti pi\-lí\-řů demokracie, nebo odsouzením Bureše za dotační, či jiné, podvody. Populisté ví\-tě\-zí prosazením šesti populistických zá\-ko\-nů, nebo zvolením Bureše premiérem po prosazení alespoň tří populistických zákonů.}
+    \textbf{Demokraté vítězí zakotvením pěti pi\-lí\-řů demokracie, nebo odsouzením Bureše za dotační, či jiné, podvody. Populisté ví\-tě\-zí prosazením šesti populistických zá\-ko\-nů, nebo zvolením Bureše premiérem po prosazení alespoň tří populistických zákonů.}
 
     Kdykoliv je prosazen populistický zákon, zís\-ká\-vá vláda větší moc, navíc získává Prezident jed\-no\-rá\-zo\-vou schopnost, kterou musí použít před za\-po\-če\-tím dalšího kola. Nezáležíc na aktuální politické pří\-sluš\-nos\-ti Prezidenta, i demokraté mohou mít motivaci prosadit populistický zákon, aby získali větší moc.
 
 
-    \section*{CÍLE HRY}
+\section*{CÍLE HRY}
 
     Každý hráč má tajnou příslušnost buďto k týmu demokratů, nebo populistů.
 
@@ -92,66 +115,66 @@
     \begin{itemize}
         \item prosadí šest populistických zákonů, nebo
         \item zvolí Bureše premiérem po prosazení alespoň tří po\-pu\-lis\-tic\-kých zákonů.
-        % třech vládách Hnutí ANO
     \end{itemize}
 
 
-    \section*{OBSAH BALENÍ}
+\section*{OBSAH BALENÍ}
 
     \begin{tabular}{r@{~\ldots~}l} % \makebox[3em]{\dotfill}
-    $17$ & Zákony (6 demokratických, 11 po\-pu\-lis\-tic\-kých) \\
-    $10$ & Tajná role \\
-    $10$ & Tajná týmová příslušnost \\
-    $10$ & Obálky \\
-    $10$ & Hlas ANO, bude líp \\
-    $10$ & Hlas Nikoliv \\
-    $1$ & Volební čítač \\
-    %~ $1$ & Lízací balíček \\
-    %~ $1$ & Odhazovací balíček \\
-    $3$ & Hrací plán Populistické zákony \\
-    $1$ & Hrací plán Demokratické pilíře \\
-    $1$ & Plaketa Prezident \\
-    $1$ & Plaketa Premiér
+    17 & Zákony (6 demokr., 11 popul.) \\
+    10 & Tajná role \\
+    10 & Tajná stranická knížka \\
+    10 & Obálky \\
+    10 & Hlas ANO, bude líp \\
+    10 & Hlas Nikoliv \\
+    1 & Volební čítač \\
+    %~ 1 & Lízací balíček \\
+    %~ 1 & Odhazovací balíček \\
+    3 & Hrací plán Populistické zákony \\
+    1 & Hrací plán Demokratické pilíře \\
+    1 & Plaketa Prezident \\
+    1 & Plaketa Premiér
     \end{tabular}
 
 
-    \section*{ZAČÁTEK HRY}
+\section*{ZAČÁTEK HRY}
 
-    Vyber hrací plán s populistickými zákony podle počtu hráčů a polož doprostřed vedle pilířů demokracie. Zamíchej všech $17$ zákonů a polož na označené místo vedle pilířů demokracie (lízací balíček).
+    Vyber hrací plán s populistickými zákony podle počtu hráčů a polož doprostřed vedle pilířů demokracie. Zamíchej všech 17 zákonů a polož na označené místo vedle pilířů demokracie (lízací balíček).
 
     Připrav pro každého hráče jednu obálku, kte\-rá bude obsahovat: jednu roli a odpovídající týmovou příslušnost (Bureš zjevně patří k populistům), jednu hlasovací kartičku \uv{ANO, bude líp} a jednu \uv{Nikoliv}. Počet hráčů urči podle následující tabulky:
     \begin{table}[h]
+    \sffamily
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{l|c|c|c|c|c|c}
-        \# hráčů & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\\hline
-        Demokraté & $3$ & $4$ & $4$ & $5$ & $5$ & $6$ \\
-        Populisté & $1$+B & $1$+B & $2$+B & $2$+B & $3$+B & $3$+B
+        \# hráčů & 5 & 6 & 7 & 8 & 9 & 10 \\\hline
+        Demokr. & 3 & 4 & 4 & 5 & 5 & 6 \\
+        Popul. & 1+B & 1+B & 2+B & 2+B & 3+B & 3+B
     \end{tabular}
     \caption{Rozložení křesel. Ujisti se, že jsi vedle Bureše rozdal správný počet řadových populistů!}
     \end{table}
 
     Obálky zamíchej a nech každého hráče, ať si vybere svojí. Hráč se poté potají podívá na svoji roli a příslušnost.
 
-    \newpage
-
     \begin{redbox}
-        {\bf\noindent K čemu slouží dvojice kartiček role a pří\-sluš\-nost?}\\[.5em]
+        \textbf{K čemu slouží dvojice kartiček role a pří\-sluš\-nost?}\\[.5em]
         Ve hře Skrytý Bureš existuje mechanismus, při kterém se jistý hráč může dozvědět týmovou pří\-sluš\-nost. % dopsat
     \end{redbox}
 
     Nyní náhodně vyber jednoho hráče, který bude začínat jako Prezident, a podej mu obě plakety, tedy \uv{Prezident} a \uv{Premiér}.
 
-    \paragraph{Hra $5$-$6$ hráčů.}
+    \subsubsection*{Hra $5$-$6$ hráčů}
     \begin{itemize}
         \item všichni zavřou oči,
-        \item populisté {\bf včetně} Bureše otevřou oči a \uv{sez\-ná\-mí} se {\it [delší pauza]},
+        \item populisté \textbf{včetně} Bureše otevřou oči a \uv{sez\-ná\-mí} se {\it [delší pauza]},
         \item všichni opět zavřou oči,
         \item všichni otevřou oči a začíná se hrát/lhát.
     \end{itemize}
 
-    \paragraph{Hra $7$-$10$ hráčů.}
+    \subsubsection*{Hra $7$-$10$ hráčů}
     \begin{itemize}
         \item všichni zavřou oči a přichystají si pravou ruku v pěst před sebe,
-        \item populisté {\bf kromě} Bureše otevřou oči a \uv{sez\-ná\-mí} se,
+        \item populisté \textbf{kromě} Bureše otevřou oči a \uv{sez\-ná\-mí} se,
         \item Bureš ukáže pravou rukou gesto \uv{Čau lidi!} (ať už vypadá jakkoliv),
         \item populisté vyhledají svého koblihového\uv{vůdce} {\it [delší pauza]},
         \item všichni opět zavřou oči a Bureš vrátí ruku v pěst,
@@ -160,23 +183,24 @@
     Pokud někomu nebylo něco jasné, nebo se cokoliv pokazilo, teď je ten správný čas to vyřešit. % nechť promluví teď, nebo mlčí navždy
 
 
-    \section*{PRŮBĚH HRY}
+\section*{PRŮBĚH HRY}
 
-    Skrytý Bureš se hraje v několika kolech. V každém kole probíhá {\bf hlasování o důvěře} vládě, přijímání nové {\bf legislativy} a případná {\bf razie} finanční správy. % (v závislosti na množství populistických zákonů).
+    Skrytý Bureš se hraje v několika kolech. V každém kole probíhá \textbf{hlasování o důvěře} vládě, přijímání nové \textbf{legislativy} a případná \textbf{razie} finanční správy. % (v závislosti na množství populistických zákonů).
 
     \subsection*{HLASOVÁNÍ O DŮVĚŘE}
 
         \subsubsection{Nový Prezident}
 
             Na začátku nového kola předává stávající Prezident svoji plaketu hráči po levici, není-li dáno jinak.
-        \subsubsection{Jmenování premiéra.}
+
+        \subsubsection{Jmenování premiéra}
 
             Prezident vybere a jmenuje premiérem {\it způ\-so\-bi\-lé\-ho} hráče tím, že před něj postaví plaketu \uv{Premiér}. Prezident může diskutovat výběr premiéra s plénem, čímž dává větší šanci odhlasování důvěry jeho vládě.
 
-            \paragraph{Způsobilost.} Poslední Prezident a premiér, kteří {\bf prošli hlasováním o důvěře}, nejsou způsobilí pro nominaci do výkonu funkce premiéra v kole následujícím.
+            \paragraph{Způsobilost.} Poslední Prezident a premiér, kteří \textbf{prošli hlasováním o důvěře}, nejsou způsobilí pro nominaci do výkonu funkce premiéra v kole následujícím.
 
             \begin{redbox}
-                {\bf\noindent Ad způsobilost.}
+                \textbf{Ad způsobilost.}
                 \begin{itemize}
                     \item Způsobilost se netýká těch, kteří neprošli hlasováním o důvěře, ti mohou být opět zvoleni do funkce Premiéra.
                     \item Způsobilost se týká pouze Premiéra, Prezidentem se může stát kdokoliv bez ohledu na způsobilost.
@@ -186,11 +210,11 @@
                 \end{itemize}
             \end{redbox}
 
-        \subsubsection{Hlasování o důvěře.}
+        \subsubsection{Hlasování o důvěře}
 
             Jakmile vybral Prezident způsobilého Premiéra, hráči diskutují o navržené vládě, dokud nejsou všichni připraveni hlasovat o důvěře této vládě. Hlasování se účastní všichni hráči, včetně Prezidenta a Premiéra. Každý hráč si připraví hlasovací lístek a poté ho všichni najednou obrátí -- volba je veřejná.
 
-            \paragraph{Remíza, nebo většina proti vládě.} Znamená vyslovení nedůvěry, prezidentská plaketa se posouvá po směru hodinových ručiček a {\em volební čítač} se zvyšuje o $1$.
+            \paragraph{Remíza, nebo většina proti vládě.} Znamená vyslovení nedůvěry, prezidentská plaketa se posouvá po směru hodinových ručiček a {\it volební čítač} se zvyšuje o $1$.
 
             \paragraph{Volební čítač.} Při každém neúspěšném hlasování o důvěře vládě se čítač o jedna zvyšuje.
 
@@ -205,8 +229,8 @@
             Pokud jsou v tuto chvíli prosazeny $3$ a více populistických zákonů, znamená případná volba Bureše premiérem výhru populistů a také konec hry. V tom případě se Bureš odhalí a nahlas prohlásí:
 
             \begin{redbox}
-                \Large\noindent
-                \uv{Nikdy neodstoupím, nikdy! Nech si to všichni zapamatují!}\\[.3em]
+                \Large
+                \uv{Nikdy neodstoupím, nikdy! Nech\\[.3em] si to všichni zapamatují!}\\[.5em]
                 \normalsize
                 \null\hfill
                 ---Andrej Babiš, 16.11.2018
@@ -214,47 +238,105 @@
 
             V opačném případě mají hráči jistotu, že dotyčný není Bureš.
 
-    \subsection*{PŘIJÍMÁNÍ LEGISLATIVY}
+    \subsection*{LEGISLATIVNÍ ŘÍZENÍ}
 
         Během přijímání legislativy spolupracují Prezident a Premiér na tajném výběru nového zákonu. Prezident si lízne $3$ zákony z lízacího balíčku, potají si je prohlédne a jeden zahodí na odhazovací balíček rubem vzhůru. Dva zbývající zákony předá Premiérovi, který si je také potají prohlédne, jeden zahodí a ten zbývající umístí na odpovídající linii---populistickou resp.\ de\-mo\-kra\-tic\-kou---lícem vzhůru.
 
-        Během legislativního procesu je zakázaná veškerá, i neverbální, komunikace.
-        %!% bla bla bla
+        Během legislativního procesu je zakázaná veš\-ke\-rá, i neverbální, komunikace. Prezident a Premiér si NESMÍ \uv{vylosovat} zákon, aby tak hráli náhodně, raději zamíchejte kartičky před odhozením jedné, nebo proveďte cokoliv chytrého k zamezení tajného a záměrného výběru zákona.
+        %!% what?
+        Navíc by měl Prezident předávat obě kartičky zároveň než jednu po druhé, aby tak nemohl soudit reakci Premiéra.
+        Pokusy o \uv{telegrafování} obsahu kartiček s využitím náhody nebo jakákoliv jiná nestandardní výýběrová procedura poškozuje ducha hry -- nedělejte to.
 
-    \subsection*{RAZIE FINANČNÍ SPRÁVY}
+        \textbf{Zahozená kartička zákona nesmí být nikdy odhalena hráčům. Hráči musí spo\-lé\-hat čistě na slova Prezidenta a Premiéra, kteří mají dovoleno lhát.}
+
+        \begin{redbox}
+            \textbf{Ad lhaní.} Často se někteří hráči dozví věci, které zbytek hráčů neví (nemůže vědět), jako například když vidí Prezident a Premiér kartičky zákonů, nebo když Prezident povolá vojenskou rozvědku ke zjištění stranické příslušnosti. Během hry Skrytý Bureš je dovoleno lhát o skrytých zjištěních VŽDY. Jediný případ, kdy MUSÍ hráči říci pravdu, je na konci hry při rozuzlení: hráč, který je Bureš, to musí říct pokud je pravomocně odsouzen, nebo pokud získá důvěru při třech a více populistických zákonech.
+        \end{redbox}
+
+        \textbf{Pokud zbývají méně než tři kartičky zákonů na lízacím balíčku,} zamíchejte je s odhozenými. Nepoužité zákony nikdy nemí být prozrazeny a také nesmí být jednoduše položeny na nový lízací balíček.
+
+        \textbf{Pokud vláda schválí populistický zákon, který dává úřadujícímu Prezidentovi novou pravomoc,} tento Prezident ji MUSÍ použít.
+
+        \textbf{Pokud vláda schválí populistický nebo demokratický zákon, který nedává Prezidentu žádnou další moc,} hra pokračuje dalším kolem -- tedy novými volbami.
+
+    \subsection*{PREZIDENTSKÉ PRAVOMOCI} %?% pořešit pojmenování, RAZIE FINANČNÍ SPRÁVY?
+
+        Pokud nově prosazený populistický zákon uděluje prezidentskou pravomoc, Prezident ji musí použít před začátkem dalšího kola. Před použitím pravomoci může Prezident libovolně diskutovat její použití, ale konečné rozhodnutí je na Prezidentovi. Hra nemůže pokračovat, dokud Prezident pravomoc nevyužije. Prezidentské pravomoci jsou použitelné pouze jednou -- nekumulují se (narozdíl od funkcí na magistrátě).
 
         %!% BLA BLA
 
-        \subsubsection*{ŠMÍROVÁNÍ} %?% lepší termín
+        \subsubsection*{Povolání vojenského zpravodajství} %?% lepší termín
 
-            %!% bla bla
+            Prezident si vybere hráče, jehož \uv{napíchne} Vojenské zpravodajství a zjistí jeho stranickou příslušnost. Zkoumaný hráč podá svoji Stranickou knížku (nikoli Roli!) %!% pojmy
+            Prezidentovi, který se potají podívá na stranickou příslušnost hráče, a vrátí Stranickou knížku zpět hráči. Prezident může před ostatními hráči pronést prohlášení (nebo lhát!) o výsledcích vyšetřování podle svého uvážení. Žádný hráč nesmí být vyšetřován vícekrát během hry.
 
-        \subsubsection*{DOSAZENÍ VLASTNÍHO PREZIDENTA}
+        \subsubsection*{Dosazení vlastního prezidenta}
 
-            %!% bla bla
+            Prezident vybere libovolného jiného hráče, aby byl dalším prezidentem, předá mu prezidentskou plaketu. Tímto způsobem se může stát Prezidentem každý hráč -- i hráči {\it nezpůsobilí} ve znění předchozích předpisů. Nový Prezident nominuje způsobilého hráče za svého Premiéra a volby probíhají jako obvykle.
 
-        \subsubsection*{ODPOSLOUCHÁVÁNÍ}
+            \textbf{Dosazení vlastního prezidenta nepřeskočí žádné hráče. Po tomto vloženém kole se vrací prezidentská plaketa nalevo od Prezidenta, který dosazoval vlastního.}
 
-            %!% bla bla
+            Pokud Prezident dosadí hráče nalevo, tento hráč bude Prezidentem dvakrát v řadě: jednou jako dosazený Prezident, jednou v rámci prezidentské rotace.
 
-        \subsubsection*{ODSOUZENÍ ZA PODVODY}
+        \subsubsection*{Špionáž}
 
-            %!% bla bla
+            Prezident se potají podívá na vrchní tři zákony na lízacím balíčku a vrátí je zpět beze změny jejich pořadí.
 
-        \subsubsection*{PRÁVO VETA}
+        \subsubsection*{Odsouzení za dotační podvody}
 
-            %!% bla bla
+            Prezident pravomocně odsoudí jednoho hráče pronesením \uv{Tímto pravomocně odsuzuji [jméno hráče] za dotační podvody}. Pokud je odsouzeným hráčem Bureš, hra končí vítězstvím demokratů. Pokud odsouzeným hráčem není Hitler, hráči se NESMÍ DOZVĚDĚT, zda byl odsouzen populista či demokrat -- hráči se musí snažit najít novou rovnováhu hlasů. Odsouzení hráči nesmějí ovlivňovat svědky, tedy mají zakázáno mluvit, hlasovat, nebo dokonce pracovat na dohodu pro Středočeský kraj. %?% co sem?
+
+        \subsubsection*{Právo veta}
+
+            Právo veta vstupuje v platnost pátým populistickým zákonem. V každém následujícím legislativním kolečku získává výkonná moc novou trvalou možnost zahodit všechny tři zákony, pokud se na tom Prezident i Premiér shodnou.
+
+            Prezident si lízne tři zákony, jeden zahodí, dva předá Premiérovi (jako obvykle). Poté může Premiér, místo výběrů jednoho zákona, říci \uv{přeju si vetovat tyto zákony.} Pokud Prezident veto potvrdí vyslovením \uv{Souhlasím s vetováním,} oba zákony jsou odhozeny a prezidentská plaketa se posouvá doleva. Pokud Prezident nesouhlasí, musí Premiér vybrat jeden zákon jako obvykle.
+
+            Každé použití práva veta znamená neaktivní vládu a zvyšuje volební čítač o jedna.
 
     \section*{KE STRATEGII}
 
-    %!% bla bla
+        \paragraph{Každý by měl tvrdit, že je demokrat.} Jelikož mají demokraté hlasovací většinu, mohou snadno umlčet jakéhokoliv hráče, který se hrdě hlásí k populistům. Populista tak nemá žádný důvod se chlubit tím, že je populista. Dále, demokraté by měli vždy říkat pravdu -- snaží se totiž rozluštit hru jako hádanku, takže jakékoliv lhaní je pro jejich tým velkou nevýhodou.
+
+        \paragraph{Hrajete-li Skrytého Bureše poprvé, pamatujte: tvařte se demokraticky jak jen to jde.} Prosazujte demokratiké zákony. Hlasujte pro demokratické vlády. Buďte Sluníčkáři. Věřte svým populistickým spolustraníkům, že Vám vytvoří příležitost, abyste prosadili demokratické zákony a zároveň prosazovali populismus na jejich stranu. %?% překlad?
+        Populisté vyhrajou díky jemné manipulaci davu a čekáním na vhodnou příležitost k prosazení populistických zákonů, nikoliv agresivním hraním od samého začátku. Nebuďte zbrklí.
+
+        \paragraph{Demokraté často těží ze zpomalování hry a z diskutování dostupných informací.} Kdežto populisté těží z uchvátání voleb, zmatku a dezinformací.
+
+        \paragraph{Populisté nejčastěji vyhrávají volbou Bureše, nikoliv prosazením šesti popuistických zákonů!} Volba Bureše není dodatečná nebo sekundární podmínka výhry, naopak, je jádrem úspěšné populistické strategie. Bureš by měl vždy hrát jako demokrat, měl by se obzvláště vyhnout lhaní a neměl by se dostávat do konfliktů s ostatními hráči. Když přijde jeho čas, Bureš potřebuje důvěru liberálů ke zvolení. A i když není Bureš nakonec zvolen, nedůvěra mezi demokraty je klíčová ke zvolení populistů v pozdějších kolech.
+
+        \paragraph{Ptejte se hráčů, proč udělali to, co udělali.} Obzvláště důležité je to při uplatňování prezidentských pravomocí -- zeptejte se dopředu, koho a proč plánuje Prezident nechat sledovat, odsoudit, nebo dosadit. %?% všechny?
+
+        \paragraph{Je-li prosazen populistický zákon, připadají v úvahu pouze tři viníci: Prezident, Premiér, nebo balíček zákonů.} Pokuste se zjistit, kdo (nebo co!) zapříčinilo tuto situaci.
 
     \section*{PODĚKOVÁNÍ}
 
-    %!% bla bla
+        Poděkování patří týmu Skrytý Bureš.
 
     \section*{ZÁSLUHY A LICENCE}
 
-    %!% bla bla
+        Skrytý Bureš je prachprostým překladem anglické verze, v originále \uv{Secret Hitler}. Největší zásluhu na české adaptaci hry tak má premiér Andrej Babiš a jeho činy.
+
+        Hra Skrytý Bureš je, stejně jako Secret Hitler, vydána pod licencí Creative Commons -- Uveďte původ-Neužívejte dílo komerčně-Zachovejte licenci v její anglické verzi Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+        \includegraphics[width=.4\textwidth]{by-nc-sa_eu}
+
+        \subsection*{DÍLO SMÍTE:}
+
+            \begin{description}
+                \item[Sdílet] -- rozmnožovat a distribuovat materiál prostřednictvím jakéhokoli média v jakémkoli formátu,
+                \item[Upravit] -- remixovat, změnit a vyjít z původního díla,
+            \end{description}
+
+        \subsection*{ZA TĚCHTO PODMÍNEK:}
+
+            \begin{description}
+                \item[Uveďte původ] -- Je Vaší povinností uvést autorství, poskytnout s dílem odkaz na licenci a vyznačit Vámi provedené změny. Toho můžete docílit jakýmkoli rozumným způsobem, nicméně nikdy ne způsobem naznačujícím, že by poskytovatel licence schvaloval nebo podporoval Vás nebo Váš způsob užití díla.
+                \item[Neužívejte dílo komerčně] -- Je zakázáno užívat dílo pro komerční účely.
+                \item[Zachovejte licenci] -- Pokud budete toto dílo upravovat, pozměňovat nebo na něj navazovat, musíte svoje odvozená díla vystavovat pod stejnou licencí jako původní dílo.
+                \item[Žádná další omezení] -- Nesmíte použít právní omezení nebo účinné technické prostředky ochrany, které by omezovaly ostatní v možnostech poskytnutých touto licencí.
+            \end{description}
+
+            Zjistěte více o Creative Commons na \url{CreativeCommons.org}. Licence k tomuto dílu je dostupná na \url{CreativeCommons.org/licenses/by-nc-sa/4.0/legalcode}.
 
 \end{document}
